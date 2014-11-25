@@ -68,4 +68,4 @@ Package used:
 - shiny
 - quantmod
 
-Source code located
+Source code located at https://github.com/r8m/DataProducts
