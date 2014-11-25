@@ -15,7 +15,7 @@ shinyUI(pageWithSidebar(
         ),
     
     mainPanel(
-        h3(textOutput("caption")),
+        tableOutput("symbSum"),
         plotOutput("symbPlot"),
         tableOutput("fin")
         )

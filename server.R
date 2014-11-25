@@ -2,12 +2,20 @@ library(shiny)
 library(quantmod)
 
 shinyServer(function(input, output) {
+    output$symbSum <- renderTable({
+        symbData<-getSymbols(input$symb, 
+                             from=input$dateFrom, 
+                             to=input$dateTo , 
+                             auto.assign=FALSE)
+        summary(Cl(symbData))
+        
+    })
     output$symbPlot <- renderPlot({
         input$goButton
         plotData<-getSymbols(input$symb, 
                              from=input$dateFrom, 
                              to=input$dateTo , 
-                             auto.assign=FALSE)
+                             auto.assign=FALSE)        
         chartSeries(plotData,
                     name=input$symb,
                     theme=chartTheme("white"))
